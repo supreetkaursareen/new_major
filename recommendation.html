@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Fitness Recommendation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+      }
+      .recommendation-container {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 600px;
+        text-align: center;
+      }
+      h1 {
+        color: #3498db;
+        margin-bottom: 20px;
+      }
+      .recommendation {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #e9f7fc;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        color: #3498db;
+      }
+      .recommendation ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      .recommendation li {
+        padding: 8px;
+        font-size: 18px;
+      }
+      .back-link {
+        display: inline-block;
+        margin-top: 15px;
+        color: #3498db;
+        text-decoration: none;
+      }
+      .back-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="recommendation-container">
+      <h1>Your AI Fitness Recommendation</h1>
+      <div class="recommendation">
+        <h2>Recommended Fitness Plan</h2>
+        <p>Based on your goal, here is the recommended fitness plan:</p>
+        <!-- Simulated AI recommendations -->
+        <div id="fitness-plan"></div>
+
+        <button class="back-link" onclick="window.location.href='login.html'">Back to Login</button>
+      </div>
+    </div>
+
+    <script>
+      // Example user data (could come from your backend or session)
+      const userData = {
+        goal: "lose_weight", // or "gain_muscle", "maintain"
+        age: 30,
+        weight: 70
+      };
+
+      // AI-based recommendation logic (simple simulation)
+      function getFitnessPlan(userData) {
+        let fitnessPlan = "";
+
+        if (userData.goal === "lose_weight") {
+          fitnessPlan = `
+            <ul>
+              <li>Focus on cardio exercises like running, cycling, and swimming.</li>
+              <li>Target a calorie deficit diet, high in protein and low in carbs.</li>
+              <li>Include strength training twice a week to build muscle mass.</li>
+              <li>Drink at least 2-3 liters of water daily.</li>
+            </ul>
+          `;
+        } else if (userData.goal === "gain_muscle") {
+          fitnessPlan = `
+            <ul>
+              <li>Focus on weightlifting and resistance training.</li>
+              <li>Consume a calorie surplus diet with high protein and complex carbs.</li>
+              <li>Rest and recovery are key—ensure 7-8 hours of sleep per night.</li>
+              <li>Track progress and adjust weights progressively each week.</li>
+            </ul>
+          `;
+        } else if (userData.goal === "maintain") {
+          fitnessPlan = `
+            <ul>
+              <li>Focus on balanced exercise, combining cardio and strength training.</li>
+              <li>Maintain a calorie-neutral diet, focusing on whole foods.</li>
+              <li>Regular stretching and mobility exercises.</li>
+              <li>Include 1-2 rest days each week for recovery.</li>
+            </ul>
+          `;
+        }
+
+        return fitnessPlan;
+      }
+
+      // Display the fitness plan
+      document.getElementById("fitness-plan").innerHTML = getFitnessPlan(userData);
+    </script>
+  </body>
+</html>
